@@ -20,6 +20,7 @@ import math
 import numpy as np
 import MySQLdb
 import cx_Oracle
+from collections import defaultdict
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def mysql_query(query, params, config):
@@ -94,10 +95,8 @@ def getFunFams(targets, cathconfig, config):
             md5 = row[0]
             domain = str(row[2]) + "_" + str(row[3])
             domains.append(domain)
-        pfamDict[target] = {}
-        pfamDict[target]["domains"] = []
-        pfamDict[target]["start"] = []
-        pfamDict[target]["end"] = [] 
+        pfamDict[target] = defaultdict(list)
+        
         for domains in domains:
             pfamDict[target]['domains'].append(domain)
             pfamDict[target]['start'].append(int(0))
