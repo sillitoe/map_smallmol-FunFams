@@ -33,7 +33,8 @@ def mysql_query(query, params, config):
     database        -- query database
 
     '''
-    mysql = MySQLdb.connect(user=config['user'], passwd=config['pword'], port=config['port'], host=config['host'] )
+    #mysql = MySQLdb.connect(user=config['user'], passwd=config['pword'], port=config['port'], host=config['host'] )
+    mysql = MySQLdb.connect(user=config['user'], port=config['port'], host=config['host'] )
     c = mysql.cursor()
     c.execute("use {0}".format(config['release']))
     c.execute(query, params)
