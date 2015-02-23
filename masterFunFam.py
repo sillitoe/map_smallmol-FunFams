@@ -81,7 +81,6 @@ def getHumanTargets(config):
         targets.append(target[0])
     return targets
 
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def getFunFams(targets, cathconfig, config):
     pfamDict ={}
@@ -96,8 +95,8 @@ def getFunFams(targets, cathconfig, config):
             domain = str(row[2]) + "_" + str(row[3])
             domains.append(domain)
         pfamDict[target] = defaultdict(list)
-        
-        for domains in domains:
+
+        for domain in domains:
             pfamDict[target]['domains'].append(domain)
             pfamDict[target]['start'].append(int(0))
             pfamDict[target]['end'].append(int(1))
